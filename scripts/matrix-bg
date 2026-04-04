@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Switch WezTerm matrix background and restart
+WEZTERM_DIR="$HOME/.config/wezterm"
+
+case "${1:-}" in
+    video)
+        cp "$WEZTERM_DIR/matrix-rain-video.gif" "$WEZTERM_DIR/matrix-rain.gif"
+        echo "Background: YouTube video Matrix rain"
+        ;;
+    generated|gen)
+        cp "$WEZTERM_DIR/matrix-rain-generated.gif" "$WEZTERM_DIR/matrix-rain.gif"
+        echo "Background: Generated Matrix rain (with depth layers)"
+        ;;
+    off)
+        printf 'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00\x00!\xf9\x04\x00\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00;' > "$WEZTERM_DIR/matrix-rain.gif"
+        echo "Background: Off"
+        ;;
+    *)
+        echo "Usage: matrix-bg [video|generated|off]"
+        echo "  video     - Real Matrix rain from YouTube"
+        echo "  generated - Generated with depth layers"
+        echo "  off       - No background"
+        exit 0
+        ;;
+esac
+
+# Restart WezTerm
+pkill -f wezterm 2>/dev/null
+sleep 0.5
+wezterm start &>/dev/null &
+disown
+echo "WezTerm restarted."

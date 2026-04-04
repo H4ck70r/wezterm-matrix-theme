@@ -1,0 +1,3 @@
+#!/bin/bash
+cp /home/hector/.config/wezterm/matrix-rain-video.gif /home/hector/.config/wezterm/matrix-rain.gif
+/home/hector/.local/bin/wezterm start &
