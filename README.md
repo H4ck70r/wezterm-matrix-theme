@@ -1,8 +1,4 @@
-# dotfiles
-
-Personal dotfiles and terminal configurations.
-
----
+# wezterm-matrix-theme
 
 ## WezTerm Matrix Terminal
 
@@ -31,8 +27,8 @@ Terminal temática de Matrix con lluvia animada de fondo, esquema verde sobre ne
 ### Quick Install / Instalacion Rapida
 
 ```bash
-git clone git@github.com:H4ck70r/dotfiles.git
-cd dotfiles
+git clone git@github.com:H4ck70r/wezterm-matrix-theme.git
+cd wezterm-matrix-theme
 bash wezterm/install.sh
 ```
 
