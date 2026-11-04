@@ -1,0 +1,4 @@
+# Variables de entorno (no versionar secretos)
+.env
+.env.*
+!.env.example
